@@ -20,4 +20,4 @@
 ## Yulin Liu
 ### 
 ## Shengwei Ma
-### By drawing the hand draft of Chalkboard, I have a comprehensive and basic summary of the website (app) we are about to make.
+### By drawing the hand draft of Chalkboard, I have a comprehensive and basic summary of the website (app) we are about to make. In particular, the sitemap divides the website (app) into several parts. In the subsequent web page production, we will do it separately according to different parts. Draft and sitemap are not difficult, but for those of us who have no web page production experience, we still need some time to sort out the logic.
