@@ -15,9 +15,9 @@
 ![alt text](https://github.com/kanvile/chalkboard/blob/main/D0Draft/9.png)
 
 # Sitemap
-
+![alt text]()
 # Learned From D0
 ## Yulin Liu
 ### 
 ## Shengwei Ma
-### 
+### By drawing the hand draft of Chalkboard, I have a comprehensive and basic summary of the website (app) we are about to make.
