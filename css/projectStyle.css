@@ -20,6 +20,7 @@
 form {
     display: block;
     margin-top: 0em;
+    padding: 10px 10px;
 }
 .signin {
     align-content: center;
