@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Contact Us</title>
     <link href="../css/contact.css" rel="stylesheet">
+    <script src="../JS/contact.js"></script>
 </head>
 <body>
 <div class="banner" >
@@ -26,13 +27,13 @@
 </details>
 
 <div class="container">
-    <form action="action_page.php">
+    <form name="myform" method="post" onsubmit="return validateform()">
 
-        <label for="fname">First Name</label>
-        <input type="text" id="fname" name="firstname" placeholder="Your first name..">
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" name="firstname" placeholder="Your first name..">
 
-        <label for="lname">Last Name</label>
-        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lastname" name="lastname" placeholder="Your last name..">
 
         <label for="email">Email: </label>
             <input type="text" id="email" name="email" placeholder="Your email..">
