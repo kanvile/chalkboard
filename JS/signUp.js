@@ -38,7 +38,7 @@ function validateform() {
             alert("Error: password must contain at least one uppercase letter (A-Z)!");
             return false;
         }
-    alert("Successful!");
+    alert("Success!");
     return true;
 }
 
