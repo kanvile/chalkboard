@@ -1,0 +1,16 @@
+.content-wrap {
+  list-style-type: none;
+  padding: 0;
+}
+.content-wrap .button {
+  padding: 15px;
+  display: block;
+}
+
+@media screen and (min-width: 750px) {
+  .content-wrap {
+    align-content: center;
+    display: flex;
+    justify-content: center;
+  }
+}
