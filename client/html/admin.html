@@ -4,6 +4,7 @@
     <title>admin mode</title>
     <meta charset="utf-8" />
     <link href="/css/projectStyle.css" rel="stylesheet" />
+    <script type="module" src="./admin-login.js"></script>
   </head>
   <body>
     <div class="banner">
@@ -19,7 +20,7 @@
         <h2>Admin Mode</h2>
       </div>
       <div class="form-wrap">
-        <form name="loginForm" class="signin" action="#" method="post">
+        <form name="admin-login-form" class="signin">
           <label for="username">Username</label><br />
           <input
             type="text"
@@ -45,11 +46,8 @@
             >Please make sure to enter a Password.</label
           ><br />
           <button
-            name="submit"
-            id="submit"
-            class="btn btn-lg btn-primary btn-block"
-            type="submit"
-            disabled
+            class="admin-login-btn btn btn-lg btn-primary btn-block"
+            type="button"
           >
             Log in
           </button>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title>sign up</title>
     <link href="/css/projectStyle.css" rel="stylesheet" />
-    <script src="/js/signUp.js"></script>
+    <script type="module" src="./sign-up.js"></script>
   </head>
   <body>
     <div class="banner">
@@ -19,20 +19,14 @@
         <h1>KINGS COLLEGE</h1>
       </div>
       <div id="id01" class="modal">
-        <form
-          class="modal-content"
-          name="myform"
-          method="post"
-          action="/html/index.html"
-          onsubmit="return validateform()"
-        >
+        <form class="modal-content" name="signup-form">
           <div class="container">
             <h1>Sign Up</h1>
             <p>Please fill in this form to create an account.</p>
             <hr />
 
             <label for="user-type"><b>User-type</b></label>
-            <select id="user-type">
+            <select required id="user-type">
               <option value="instructor">Instructor</option>
               <option value="student">Student</option></select
             ><br />
@@ -82,15 +76,6 @@
               required
             /><br />
 
-            <label>
-              <input
-                type="checkbox"
-                checked="checked"
-                name="remember"
-                style="margin-bottom: 15px"
-              />
-              Remember me </label
-            ><br />
             <div class="clearfix">
               <button
                 type="button"
@@ -99,7 +84,7 @@
               >
                 Cancel
               </button>
-              <button type="submit" class="signupbtn">Sign Up</button>
+              <button type="button" class="signup-btn">Sign Up</button>
             </div>
           </div>
         </form>
