@@ -1,5 +1,5 @@
 # Home Page
-## https://kanvile.github.io/html/index.html
+## https://chalkboard-2021.herokuapp.com/html/index.html
 
 # Chalkboard
 ### Yulin Liu, Shengwei Ma
