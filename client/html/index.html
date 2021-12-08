@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>home page</title>
+    <meta charset="utf-8">
+    <link href="/css/projectStyle.css" rel="stylesheet">
+    <script type="module" src="./login.js"></script>
+</head>
+
+<body class="background-picture">
+    <div class="banner">
+        <img class="logo" src="/img/logo.png" alt="logo">
+        <! --- logo and banner created by Shengwei Ma use mural.com online tool --->
+    </div>
+    <nav class="menu">
+        <p>Temp placeholder for other html files
+        <ul class="menu cf">
+            <li><a href="">Home</a></li>
+            <li>
+                <a href="">For students</a>
+                <ul class="submenu">
+                    <li><a href="/html/search.html">Search page</a></li>
+                    <li><a href="/html/enrollclasses.html">Enroll page</a></li>
+                    <li><a href="/html/assignment.html">Assignment</a></li>
+                </ul>
+            </li>
+            <li><a href="">For instructors</a>
+                <ul class="submenu">
+                    <li><a href="/html/displayclasses.html">Display classes</a></li>
+                    <li><a href="/html/addnewclass.html">add new classes</a></li>
+                    <li><a href="/html/grade.html">Grades</a></li>
+                </ul>
+            </li>
+            <li><a href="/html/adminView.html">Admin view </a></li>
+            <li><a href="/html/contact.html">Contact us</a></li>
+        </ul>
+        </p>
+    </nav>
+
+    <div class="whole-wrap">
+        <div class="content-wrap">
+            <h1>KINGS COLLEGE</h1>
+        </div>
+        <div class="form-wrap">
+            <form name="login-form" class="signin">
+                <label for="user-type"><b>User-type</b></label>
+                <select id="user-type">
+                    <option value="instructor">Instructor</option>
+                    <option value="student">Student</option>
+                </select><br>
+                <label for="username">Username</label><br>
+                <input required type="text" name="username" id="username" class="form-control" AUTOCOMPLETE="on"
+                    autofocus><br>
+                <label for="username" id="login" class="error-message">Please make sure to enter a valid username (your
+                    Kings college e-mail).</label><br>
+                <label for="password">Password</label><br>
+                <input required type="password" name="password" id="password" class="form-control"
+                    AUTOCOMPLETE="off"><br>
+                <label for="password" id="thePassword" class="error-message">Please make sure to enter a
+                    Password.</label><br>
+                <label for="remember">
+                    <input type="checkbox" name="remember" style="margin-bottom: 15px" />
+                    Remember me
+                </label>
+                <br />
+                <button type="button" class="login-btn btn btn-lg btn-primary btn-block">Log in</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <ul class="list">
+            <li><a href="/html/signUp.html">New user? sign up</a></li>
+            <li><a href="/html/admin.html">admin mode</a></li>
+        </ul>
+    </footer>
+</body>
+
+</html>

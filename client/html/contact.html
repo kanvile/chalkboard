@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+    <link href="/css/contact.css" rel="stylesheet">
+    <script src="/js/contact.js"></script>
+</head>
+<body>
+<div class="banner" >
+    <img class="logo" src="/img/logo.png" alt="logo">
+    <! --- logo and banner created by Shengwei Ma use mural.com online tool --->
+</div>
+
+<details>
+    <summary></summary>
+    <nav class="menu">
+        <a href="/html/index.html">Home</a>
+        <a href="/html/search.html">Search page </a>
+        <a href="/html/enrollclasses.html">Enroll page</a>
+        <a href="/html/assignment.html">Assignment</a>
+        <a href="/html/displayclasses.html">Display classes</a>
+        <a href="/html/addnewclass.html">add new classes</a>
+        <a href="/html/grade.html">Grades</a>
+        <a href="/html/adminView.html">Admin view </a>
+    </nav>
+</details>
+
+<div class="container">
+    <form name="myform" method="post" onsubmit="return validateform()">
+
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" name="firstname" placeholder="Your first name..">
+
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lastname" name="lastname" placeholder="Your last name..">
+
+        <label for="email">Email: </label>
+            <input type="text" id="email" name="email" placeholder="Your email..">
+        </label>
+
+        <label for="contact">Contact Us</label>
+        <textarea id="contact" name="contact" placeholder="Write something.." style="height:200px"></textarea>
+
+        <input type="submit" value="Send">
+
+    </form>
+</div>
+</body>
+</html>

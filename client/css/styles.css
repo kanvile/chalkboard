@@ -1,0 +1,94 @@
+.background-picture {
+  background-color: #7a9cc6;
+  color: #f7fff7;
+  max-width: 2048px;
+  padding: 100px;
+  background-image: url('../images/background.jpg');
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: cover;
+}
+
+h1 {
+  font-family: 'Gluten', cursive;
+  margin: 0;
+  font-size: 100px;
+}
+
+.name {
+  font-family: 'Quantico', sans-serif;
+}
+.clearfix {
+  clear: both;
+}
+.wrapper {
+}
+aside {
+  margin-top: 50px;
+  background: gold;
+}
+h2 {
+  font-size: 50px;
+}
+article {
+  font-family: 'Grey Qo', cursive;
+  font-size: 30px;
+  max-width: 800px;
+  width: 50%;
+  margin: 0 auto;
+  padding: 60px 0;
+}
+
+.resourcesBox {
+}
+.projectsBox {
+}
+@media screen and (min-width: 750px) {
+  img.face {
+    float: right;
+  }
+  h1 {
+    text-align: center;
+  }
+  h2 {
+    font-size: 30px;
+    margin: 0;
+  }
+  .titlePic {
+    float: left;
+    width: 30%;
+    height: fit-content;
+    padding: 20px;
+  }
+
+  footer {
+    text-align: right;
+  }
+  .content-wrap {
+    float: right;
+    padding-right: 20px;
+    margin-top: 25px;
+  }
+  aside {
+    float: left;
+    width: 200px;
+    height: 400px;
+    padding: 20px;
+  }
+  article {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 749px) {
+  h1 {
+    font-size: 50px;
+    line-height: 1;
+  }
+
+  h2 {
+    font-size: 30px;
+    line-height: 1;
+  }
+}

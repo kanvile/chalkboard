@@ -1,0 +1,264 @@
+.logo-background {
+  background-color: #fffd98;
+  color: darkslategrey;
+}
+.banner {
+  background-color: #7a9cc6;
+  color: #f7fff7;
+  background-image: url('../img/Kings College (1).png');
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: cover;
+}
+.background-picture {
+  background-color: #7a9cc6;
+  color: #f7fff7;
+  background-image: url('../img/kingscollegebackground.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+form {
+  display: block;
+  margin-top: 0em;
+  padding: 10px 10px;
+}
+.signin {
+  align-content: center;
+}
+#submit {
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  display: block;
+  transition: 0.7s;
+  height: 50px;
+  font-size: large;
+}
+#submit:hover {
+  transform: scale(1.2);
+}
+label {
+  display: inline-block;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+  max-width: 100%;
+  color: #0c2255;
+  font-size: large;
+  font-weight: bold;
+}
+h1 {
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+}
+div {
+  display: block;
+}
+.form-wrap {
+  max-width: 600px;
+  padding-top: 20px;
+  background-color: #f8fafb;
+  margin-top: 10px;
+}
+.signin button,
+.signin input[type='email'],
+.signin input[type='password'],
+.signin input[type='text'],
+.signin select {
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+  z-index: 1;
+  position: relative;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+button {
+  color: lavender;
+  width: 170px;
+  background: cornflowerblue;
+  background-size: 200px;
+}
+
+footer {
+  background-color: #fffd98;
+  color: darkslategrey;
+  margin-top: 100px;
+}
+.list {
+  list-style-type: none;
+  padding: 0;
+}
+.list a {
+  padding: 15px;
+  display: inline-block;
+}
+
+/* Clearing floats */
+.cf:before,
+.cf:after {
+  content: ' ';
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.cf {
+  *zoom: 1;
+}
+
+.menu,
+.submenu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu {
+  margin: 50px auto;
+  width: 800px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.menu > li {
+  background: linear-gradient(#d8b5ff, #1eae98);
+  float: left;
+  position: relative;
+  transform: skewX(25deg);
+}
+
+.menu a {
+  display: block;
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: Arial, Helvetica;
+  font-size: 14px;
+}
+
+.menu li:hover {
+  background: steelblue;
+}
+
+.menu > li > a {
+  transform: skewX(-25deg);
+  padding: 1em 2em;
+}
+
+/* Dropdown */
+.submenu {
+  position: absolute;
+  width: 200px;
+  left: 50%;
+  margin-left: -100px;
+  transform: skewX(-25deg);
+  transform-origin: left top;
+}
+
+.submenu li {
+  background: linear-gradient(to right, darkseagreen, cornflowerblue);
+  position: relative;
+  overflow: hidden;
+}
+
+.submenu > li > a {
+  padding: 1em 2em;
+}
+
+.submenu > li::after {
+  content: '';
+  position: absolute;
+  top: -125%;
+  height: 100%;
+  width: 100%;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+}
+
+/* Odd stuff */
+.submenu > li:nth-child(odd) {
+  transform: skewX(-25deg) translateX(0);
+}
+
+.submenu > li:nth-child(odd) > a {
+  transform: skewX(25deg);
+}
+
+.submenu > li:nth-child(odd)::after {
+  right: -50%;
+  transform: skewX(-25deg) rotate(3deg);
+}
+
+/* Even stuff */
+.submenu > li:nth-child(even) {
+  transform: skewX(25deg) translateX(0);
+}
+
+.submenu > li:nth-child(even) > a {
+  transform: skewX(-25deg);
+}
+
+.submenu > li:nth-child(even)::after {
+  left: -50%;
+  transform: skewX(25deg) rotate(3deg);
+}
+
+/* Show dropdown */
+.submenu,
+.submenu li {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.submenu li {
+  transition: 0.2s ease transform;
+}
+
+.menu > li:hover .submenu,
+.menu > li:hover .submenu li {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu > li:hover .submenu li:nth-child(even) {
+  transform: skewX(25deg) translateX(15px);
+}
+
+.menu > li:hover .submenu li:nth-child(odd) {
+  transform: skewX(-25deg) translateX(-15px);
+}
+
+@media screen and (max-width: 1920px) {
+  .whole-wrap {
+    float: none;
+    max-width: 500px;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 1920px) {
+  .username .password {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+  }
+  .signin #login #thePassword #user-type {
+    max-width: 300px;
+    padding: 9px;
+  }
+}
+@media screen and (min-width: 750px) {
+  footer {
+    text-align: center;
+  }
+  .list {
+    display: flex;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "extends": ["eslint:recommended", "prettier"],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "mongo": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": "latest"
+  },
+  "rules": {
+    "no-console": "off",
+    "no-unused-vars": "off"
+  }
+}

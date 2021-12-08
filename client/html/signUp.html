@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>sign up</title>
+    <link href="/css/projectStyle.css" rel="stylesheet" />
+    <script type="module" src="./sign-up.js"></script>
+  </head>
+  <body>
+    <div class="banner">
+      <img class="logo" src="/img/logo.png" alt="logo" />
+      <! --- logo and banner created by Shengwei Ma use mural.com online tool --->
+    </div>
+    <div class="back">
+      <a class="home" href="/html/index.html">Home</a>
+    </div>
+    <div class="whole-wrap">
+      <div class="content-wrap">
+        <h1>KINGS COLLEGE</h1>
+      </div>
+      <div id="id01" class="modal">
+        <form class="modal-content" name="signup-form">
+          <div class="container">
+            <h1>Sign Up</h1>
+            <p>Please fill in this form to create an account.</p>
+            <hr />
+
+            <label for="user-type"><b>User-type</b></label>
+            <select required id="user-type">
+              <option value="instructor">Instructor</option>
+              <option value="student">Student</option></select
+            ><br />
+
+            <label for="first-name"><b>First-name</b></label>
+            <input
+              id="first-name"
+              type="text"
+              placeholder="Enter First-name"
+              name="firstName"
+              required
+            /><br />
+
+            <label for="last-name"><b>Last-name</b></label>
+            <input
+              id="last-name"
+              type="text"
+              placeholder="Enter Last-name"
+              name="lastName"
+              required
+            /><br />
+
+            <label for="email"><b>Email</b></label>
+            <input
+              id="email"
+              type="text"
+              placeholder="Enter Email"
+              name="email"
+              required
+            /><br />
+
+            <label for="password"><b>Password</b></label>
+            <input
+              id="password"
+              type="password"
+              placeholder="Enter Password"
+              name="psw"
+              required
+            /><br />
+
+            <label for="pass2"><b>Repeat Password</b></label>
+            <input
+              id="pass2"
+              type="password"
+              placeholder="Repeat Password"
+              name="psw2"
+              required
+            /><br />
+
+            <div class="clearfix">
+              <button
+                type="button"
+                onclick="document.getElementById('id01').style.display='none'"
+                class="cancelbtn"
+              >
+                Cancel
+              </button>
+              <button type="button" class="signup-btn">Sign Up</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <footer>
+      <ul class="list">
+        <li><a href="/html/index.html">have an account? sign in</a></li>
+        <li><a href="/html/admin.html">admin mode</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>

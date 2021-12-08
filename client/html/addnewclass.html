@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>add new class</title>
+    <link href="/css/addnew.css" rel="stylesheet" />
+    <link href="/css/projectStyle.css" rel="stylesheet" />
+    <script type="module" src="./router-guard.js"></script>
+  </head>
+  <body>
+    <div class="banner">
+      <img class="logo" src="/img/logo.png" alt="logo" />
+      <! --- logo and banner created by Shengwei Ma use mural.com online tool --->
+    </div>
+    <div class="back">
+      <a class="home" href="/html/index.html">Home</a>
+    </div>
+    <div class="whole-wrap">
+      <div class="content-wrap">
+        <h1>Add New Class</h1>
+      </div>
+      <div class="form-wrap">
+        <form name="addForm" class="add" action="#" method="post">
+          <label for="classname">Class Name</label><br />
+          <input
+            type="text"
+            name="classname"
+            id="classname"
+            class="form-control"
+            autocomplete="on"
+            autofocus
+            required
+          /><br />
+          <label for="classid">Class ID</label><br />
+          <input
+            type="text"
+            name="classid"
+            id="classid"
+            class="form-control"
+            autocomplete="off"
+            required
+          /><br />
+          <label for="capacity">Class Capacity</label><br />
+          <input
+            type="number"
+            name="capacity"
+            id="capacity"
+            class="form-control"
+            autocomplete="on"
+            autofocus
+            required
+          /><br />
+          <label for="instructor">Instructor Name</label><br />
+          <input
+            type="text"
+            name="instructor"
+            id="instructor"
+            class="form-control"
+            autocomplete="on"
+            autofocus
+            required
+          /><br />
+          <label for="roster">Roster of Students</label><br />
+          <input
+            type="text"
+            name="roster"
+            id="roster"
+            class="form-control"
+            autocomplete="on"
+            autofocus
+            required
+          /><br />
+          <label for="description">Class Description</label><br />
+          <textarea
+            type="text"
+            name="description"
+            id="description"
+            class="form-control"
+            required
+          ></textarea
+          ><br />
+          <label for="classes">Classes</label><br />
+          <textarea
+            type="text"
+            name="classes"
+            id="classes"
+            class="form-control"
+            required
+          ></textarea>
+          <button name="submit" id="submit" type="submit">Submit</button>
+          <button name="cancel" id="cancel" type="reset">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
