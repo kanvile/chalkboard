@@ -21,7 +21,9 @@ app.get('/', (req, res) => {
 
 require('require-all')({
   dirname: __dirname + '/routes',
-  filter: /\.js$/,
+  filter: (name) => {
+    return name !== 'crud.js'
+  },
   resolve: function (route) {
     route(app)
   },

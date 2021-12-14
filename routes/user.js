@@ -1,24 +1,16 @@
-const {
-  getAllUsers,
-  getUsersByType,
-  updateUser,
-  deleteUser,
-  deleteAllUsers,
-} = require('../services/user')
-
 module.exports = (app) => {
   const router = require('express').Router()
 
-  router.get('/', async (req, res, next) => {
-    try {
-      const users = await getAllUsers()
-      res.json(users)
-    } catch (e) {
-      next(e)
-    }
-  })
+  const { USER_TYPE } = require('../constants')
+  const isAdmin = require('../middleware/auth')(USER_TYPE.admin)
 
-  router.get('/:type', async (req, res, next) => {
+  const genCrudRoute = require('./crud')
+  const { User } = require('../models/user')
+  const { getUsersByType } = require('../services/user')
+
+  genCrudRoute(router, User, ['create'])
+
+  router.get('/type/:type', async (req, res, next) => {
     const type = req.params.type
 
     try {
@@ -29,37 +21,6 @@ module.exports = (app) => {
     }
   })
 
-  router.patch('/:id', async (req, res, next) => {
-    const id = req.params.id
-    const data = req.body
-
-    try {
-      const user = await updateUser(id, data)
-      res.json(user)
-    } catch (e) {
-      next(e)
-    }
-  })
-
-  router.delete('/:id', async (req, res, next) => {
-    const id = req.params.id
-
-    try {
-      await deleteUser(id)
-      res.json(true)
-    } catch (e) {
-      next(e)
-    }
-  })
-
-  router.delete('/', async (req, res, next) => {
-    try {
-      await deleteAllUsers()
-      res.json(true)
-    } catch (e) {
-      next(e)
-    }
-  })
-
+  // app.use('/users', isAdmin, router)
   app.use('/users', router)
 }

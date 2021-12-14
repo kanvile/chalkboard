@@ -6,6 +6,7 @@
     <link href="/css/addnew.css" rel="stylesheet" />
     <link href="/css/projectStyle.css" rel="stylesheet" />
     <script type="module" src="./router-guard.js"></script>
+    <script type="module" src="./add-new-class.js"></script>
   </head>
   <body>
     <div class="banner">
@@ -20,22 +21,22 @@
         <h1>Add New Class</h1>
       </div>
       <div class="form-wrap">
-        <form name="addForm" class="add" action="#" method="post">
-          <label for="classname">Class Name</label><br />
+        <form name="add-class-form" class="add">
+          <label for="name">Class Name</label><br />
           <input
             type="text"
-            name="classname"
-            id="classname"
+            name="name"
+            id="naem"
             class="form-control"
             autocomplete="on"
             autofocus
             required
           /><br />
-          <label for="classid">Class ID</label><br />
+          <label for="id">Class ID</label><br />
           <input
             type="text"
-            name="classid"
-            id="classid"
+            name="id"
+            id="id"
             class="form-control"
             autocomplete="off"
             required
@@ -50,17 +51,7 @@
             autofocus
             required
           /><br />
-          <label for="instructor">Instructor Name</label><br />
-          <input
-            type="text"
-            name="instructor"
-            id="instructor"
-            class="form-control"
-            autocomplete="on"
-            autofocus
-            required
-          /><br />
-          <label for="roster">Roster of Students</label><br />
+          <!-- <label for="roster">Roster of Students</label><br />
           <input
             type="text"
             name="roster"
@@ -69,7 +60,7 @@
             autocomplete="on"
             autofocus
             required
-          /><br />
+          /><br /> -->
           <label for="description">Class Description</label><br />
           <textarea
             type="text"
@@ -79,15 +70,7 @@
             required
           ></textarea
           ><br />
-          <label for="classes">Classes</label><br />
-          <textarea
-            type="text"
-            name="classes"
-            id="classes"
-            class="form-control"
-            required
-          ></textarea>
-          <button name="submit" id="submit" type="submit">Submit</button>
+          <button name="submit" id="submit" type="button">Submit</button>
           <button name="cancel" id="cancel" type="reset">Cancel</button>
         </form>
       </div>

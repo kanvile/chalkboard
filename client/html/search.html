@@ -5,6 +5,16 @@
     <title>search page</title>
     <link href="/css/projectStyle.css" rel="stylesheet" />
     <link href="/css/search.css" rel="stylesheet" />
+    <script type="module" src="./search-course.js"></script>
+    <style>
+      .table {
+        margin-top: 30px;
+      }
+      .table th,
+      .table td {
+        padding: 10px;
+      }
+    </style>
   </head>
   <body>
     <div class="banner">
@@ -16,11 +26,24 @@
       <a href="#about">About</a>
       <a href="/html/contact.html">Contact</a>
       <div class="search-container">
-        <form action="/action_page.php">
-          <input type="text" placeholder="Search.." name="search" />
-          <button type="submit">submit</button>
+        <form name="search-course">
+          <input type="text" placeholder="Search course name.." name="search" />
+          <button type="button" class="btn">submit</button>
         </form>
       </div>
     </div>
+
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Class name</th>
+          <th scope="col">ID</th>
+          <th scope="col">Description</th>
+          <th scope="col">Capacity</th>
+          <th scope="col">Available</th>
+        </tr>
+      </thead>
+      <tbody id="table-body"></tbody>
+    </table>
   </body>
 </html>

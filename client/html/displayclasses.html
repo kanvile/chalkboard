@@ -17,37 +17,40 @@
       <p></p>
     </div>
     <div class="content-wrap">
-      <button class="btn btn-sm btn-primary" id="add-test">
+      <button
+        class="btn btn-sm btn-primary"
+        type="button"
+        id="add-test"
+        onclick="window.location='/html/addnewclass.html'"
+      >
         Add New Class
       </button>
-      <div class="form-wrapper hidden">
-        <select class="form-control" id="test-name">
-          <option>----------</option>
-          <option>CSCI</option>
-          <option>MATH</option>
-          <option>PHYS</option>
-          <option>CHEM</option>
-          <option>ENG</option>
-          <option>HISTORY</option>
-          <option>other</option>
-        </select>
-        <input class="form-control" type="text" id="test-result" />
-        <button class="btn btn-sm btn-info" id="create-test">Add</button>
-      </div>
     </div>
     <div class="classList">
       <table class="table table-dark">
         <thead>
           <tr>
-            <p></p>
             <th scope="col">Class name</th>
-            <th scope="col">Number</th>
+            <th scope="col">ID</th>
+            <th scope="col">Description</th>
+            <th scope="col">Capacity</th>
+            <th scope="col">Available</th>
+            <th scope="col">Operation</th>
           </tr>
         </thead>
         <tbody id="tests-table"></tbody>
       </table>
     </div>
     <style>
+      .classList {
+        padding: 20px 0;
+      }
+
+      .table th,
+      .table td {
+        padding: 10px;
+      }
+
       .hidden {
         display: none;
       }
@@ -55,56 +58,41 @@
       .result {
         max-width: 80px;
       }
+
+      .operation {
+        padding-left: 100px;
+      }
     </style>
     <script>
-      var newId = 4
-      var newTest = { name: null, id: newId, result: null }
-
-      $('#add-test').on('click', function () {
-        $('.form-wrapper').removeClass('hidden')
+      const data = $.ajax({
+        url: '/courses',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
       })
-
-      $('#test-result').on('keyup', function () {
-        newTest.result = $(this).val()
-        console.log(newTest)
-      })
-
-      $('#test-name').on('change', function () {
-        newTest.name = $(this).val()
-        console.log(newTest)
-      })
-
-      $('#create-test').on('click', function () {
-        if (newTest.name == null) {
-          alert('No class selected!')
-        } else {
-          addRow(newTest)
-          $('#test-name').val('')
-          $('#test-result').val('')
-          $('.form-wrapper').addClass('hidden')
-        }
-      })
-
-      var tests = [
-        { name: 'CSCI', id: '1', result: '355' },
-        { name: 'CSCI', id: '2', result: '331' },
-        { name: 'MATH', id: '3', result: '241' },
-      ]
-
-      for (var i in tests) {
-        addRow(tests[i])
-      }
+        .done((res) => {
+          for (var i in res) {
+            addRow(res[i])
+          }
+        })
+        .fail((e) => {
+          alert(e.statusText)
+        })
 
       function addRow(obj) {
         var row = `<tr scope="row" class="test-row-${obj.id}">
-	    			   <td>${obj.name}</td>
-	                   <td id="result-${obj.id}" data-testid="${obj.id}"">${obj.result}</td>
-	                   <td>
-	                   		<button class="btn btn-sm btn-danger" data-testid=${obj.id} id="delete-${obj.id}">Delete</button>
-	                   		<button class="btn btn-sm btn-info" disabled data-testid="${obj.id}"  id="save-${obj.id}">Save</button>
+	    			         <td>${obj.name}</td>
+	                   <td>${obj.identifier}</td>
+	    			         <td>${obj.description}</td>
+	    			         <td>${obj.capacity}</td>
+	    			         <td>${obj.available}</td>
 
-	                   		<button class="btn btn-sm btn-danger hidden" data-testid="${obj.id}"  id="cancel-${obj.id}">Cancel</button>
-	                   		<button class="btn btn-sm btn-primary hidden" data-testid="${obj.id}"  id="confirm-${obj.id}">Confirm</button>
+	                   <td class="operation">
+	                   		<button class="btn btn-sm btn-danger" data-id=${obj.id} id="delete-${obj.id}">Delete</button>
+	                   		<button class="btn btn-sm btn-info" disabled data-id="${obj.id}"  id="save-${obj.id}">Save</button>
+
+	                   		<button class="btn btn-sm btn-danger hidden" data-id="${obj.id}"  id="cancel-${obj.id}">Cancel</button>
+	                   		<button class="btn btn-sm btn-primary hidden" data-id="${obj.id}"  id="confirm-${obj.id}">Confirm</button>
 
 	                   </td>
 	    		   </tr>`
@@ -114,31 +102,13 @@
         $(`#cancel-${obj.id}`).on('click', cancelDeletion)
         $(`#confirm-${obj.id}`).on('click', confirmDeletion)
         $(`#save-${obj.id}`).on('click', saveUpdate)
-
-        $(`#result-${obj.id}`).on('click', editResult)
-      }
-
-      function editResult() {
-        var testid = $(this).data('testid')
-        var value = $(this).html()
-
-        $(this).unbind()
-        $(this).html(
-          `<input class="result form-control" data-testid="${testid}" type="text" value="${value}">`
-        )
-
-        $(`.result`).on('keyup', function () {
-          var testid = $(this).data('testid')
-          var saveBtn = $(`#save-${testid}`)
-          saveBtn.prop('disabled', false)
-        })
       }
 
       function saveUpdate() {
         console.log('Saved!')
-        var testid = $(this).data('testid')
-        var saveBtn = $(`#save-${testid}`)
-        var row = $(`.test-row-${testid}`)
+        var id = $(this).data('id')
+        var saveBtn = $(`#save-${id}`)
+        var row = $(`.test-row-${id}`)
 
         saveBtn.prop('disabled', true)
         row.css('opacity', '0.5')
@@ -149,12 +119,12 @@
       }
 
       function deleteTest() {
-        var testid = $(this).data('testid')
+        var id = $(this).data('id')
 
-        var deleteBtn = $(`#delete-${testid}`)
-        var saveBtn = $(`#save-${testid}`)
-        var cancelBtn = $(`#cancel-${testid}`)
-        var confirmBtn = $(`#confirm-${testid}`)
+        var deleteBtn = $(`#delete-${id}`)
+        var saveBtn = $(`#save-${id}`)
+        var cancelBtn = $(`#cancel-${id}`)
+        var confirmBtn = $(`#confirm-${id}`)
 
         deleteBtn.addClass('hidden')
         saveBtn.addClass('hidden')
@@ -164,12 +134,12 @@
       }
 
       function cancelDeletion() {
-        var testid = $(this).data('testid')
+        var id = $(this).data('id')
 
-        var deleteBtn = $(`#delete-${testid}`)
-        var saveBtn = $(`#save-${testid}`)
-        var cancelBtn = $(`#cancel-${testid}`)
-        var confirmBtn = $(`#confirm-${testid}`)
+        var deleteBtn = $(`#delete-${id}`)
+        var saveBtn = $(`#save-${id}`)
+        var cancelBtn = $(`#cancel-${id}`)
+        var confirmBtn = $(`#confirm-${id}`)
 
         deleteBtn.removeClass('hidden')
         saveBtn.removeClass('hidden')
@@ -179,9 +149,22 @@
       }
 
       function confirmDeletion() {
-        var testid = $(this).data('testid')
-        var row = $(`.test-row-${testid}`)
-        row.remove()
+        var id = $(this).data('id')
+
+        $.ajax({
+          url: `/courses/${id}`,
+          method: 'delete',
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        })
+          .done(() => {
+            var row = $(`.test-row-${id}`)
+            row.remove()
+          })
+          .fail((e) => {
+            alert(e.statusText)
+          })
       }
     </script>
   </body>

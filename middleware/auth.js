@@ -1,22 +1,33 @@
 const jwt = require('jsonwebtoken')
 const assert = require('http-assert')
-const User = require('../models/user')
+const { getUserById } = require('../services/user')
 const { isValidObjectId } = require('mongoose')
 
-module.exports = () => async (req, res, next) => {
+module.exports = (userType) => async (req, res, next) => {
   const token = String(req.headers.authorization || '')
     .split(' ')
     .pop()
 
-  assert(token, 401, 'authentication failed')
+  try {
+    assert(token, 401, 'Authentication failed')
 
-  const { id } = jwt.verify(token, req.app.get('secret'))
+    const { id } = jwt.verify(token, req.app.get('secret'))
 
-  assert(isValidObjectId(id), 401, 'authentication failed')
+    assert(isValidObjectId(id), 401, 'Authentication failed')
 
-  req.user = await User.findById(id)
+    const user = await getUserById(id)
 
-  assert(req.user, 401, 'authentication failed')
+    console.log('auth middleware', user)
 
-  next()
+    assert(
+      user !== null && (!userType || user.type === userType),
+      401,
+      'Authentication failed'
+    )
+
+    req.user = user
+    next()
+  } catch (e) {
+    next(e)
+  }
 }

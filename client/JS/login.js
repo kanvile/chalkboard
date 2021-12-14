@@ -1,5 +1,5 @@
 import { login } from './fetchers.js'
-import { validate } from './validator.js'
+import { validate } from './common.js'
 
 const form = document['login-form']
 const loginBtn = document.querySelector('.login-btn')

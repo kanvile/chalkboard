@@ -1,4 +1,6 @@
-const fetcher = async (url, init = {}) => {
+export const fetcher = async (url, init = {}) => {
+  console.log(url, init)
+
   const token = localStorage.getItem('token')
 
   const defaultHeaders = {
@@ -28,7 +30,7 @@ const fetcher = async (url, init = {}) => {
   }
 }
 
-const login = async (data) => {
+export const login = async (data) => {
   const { token, user } = await auth(data, 'login')
 
   localStorage.setItem('user', JSON.stringify(user))
@@ -37,7 +39,7 @@ const login = async (data) => {
   return user
 }
 
-const register = async (data) => {
+export const register = async (data) => {
   const user = await auth(data, 'register')
 
   return user
@@ -52,4 +54,45 @@ const auth = async (data, url) => {
   return res
 }
 
-export { login, register, fetcher }
+export const createCourse = async (data) => {
+  const res = await fetcher('/courses', {
+    body: data,
+    method: 'POST',
+  })
+
+  return res
+}
+
+export const getCourses = async () => {
+  const res = await fetcher('/courses', {
+    method: 'GET',
+  })
+
+  return res
+}
+
+export const getCourseById = async (id) => {
+  const res = await fetcher(`/courses/${id}`, { method: 'GET' })
+  return res
+}
+
+export const getCourseByName = async (name) => {
+  const res = await fetcher(`/courses?name=${name}`, {
+    method: 'GET',
+  })
+  return res
+}
+
+export const updateCourse = async (id, data) => {
+  const res = await fetcher(`/courses/${id}`, { method: 'POST', body: data })
+  return res
+}
+
+export const enrollCourse = async (courses) => {
+  const res = await fetcher(`/courses/enroll`, {
+    method: 'POST',
+    body: { courses },
+  })
+
+  return res
+}
