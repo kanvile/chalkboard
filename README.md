@@ -1,5 +1,5 @@
 # Home Page
-## https://kanvile.github.io/html/index.html
+## https://chalkboard-2021.herokuapp.com/html/index.html
 
 # Chalkboard
 ### Yulin Liu, Shengwei Ma
@@ -8,20 +8,20 @@
 
 # Wireframe
 ### hand draft
-![alt text](https://github.com/kanvile/chalkboard/blob/main/D0Draft/1.png)
-![alt text](https://github.com/kanvile/chalkboard/blob/main/D0Draft/2.png)
-![alt text](https://github.com/kanvile/chalkboard/blob/main/D0Draft/3.png)
-![alt text](https://github.com/kanvile/chalkboard/blob/main/D0Draft/4.png)
-![alt text](https://github.com/kanvile/chalkboard/blob/main/D0Draft/5.png)
-![alt text](https://github.com/kanvile/chalkboard/blob/main/D0Draft/6.png)
-![alt text](https://github.com/kanvile/chalkboard/blob/main/D0Draft/7.png)
-![alt text](https://github.com/kanvile/chalkboard/blob/main/D0Draft/8.png)
-![alt text](https://github.com/kanvile/chalkboard/blob/main/D0Draft/9.png)
+![alt text](https://github.com/kanvile/chalkboard/blob/main/client/D0Draft/1.png)
+![alt text](https://github.com/kanvile/chalkboard/blob/main/client/D0Draft/2.png)
+![alt text](https://github.com/kanvile/chalkboard/blob/main/client/D0Draft/3.png)
+![alt text](https://github.com/kanvile/chalkboard/blob/main/client/D0Draft/4.png)
+![alt text](https://github.com/kanvile/chalkboard/blob/main/client/D0Draft/5.png)
+![alt text](https://github.com/kanvile/chalkboard/blob/main/client/D0Draft/6.png)
+![alt text](https://github.com/kanvile/chalkboard/blob/main/client/D0Draft/7.png)
+![alt text](https://github.com/kanvile/chalkboard/blob/main/client/D0Draft/8.png)
+![alt text](https://github.com/kanvile/chalkboard/blob/main/client/D0Draft/9.png)
 
 # Sitemap(old)
-![alt text](https://github.com/kanvile/chalkboard/blob/main/D0Draft/sitemap.png)
+![alt text](https://github.com/kanvile/chalkboard/blob/main/client/D0Draft/sitemap.png)
 # Sitemap(new)
-![alt text](https://github.com/kanvile/chalkboard/blob/main/D0Draft/newSiteMap.png)
+![alt text](https://github.com/kanvile/chalkboard/blob/main/client/D0Draft/newSiteMap.png)
 
 # Learned From D0
 ## Yulin Liu
