@@ -96,3 +96,12 @@ export const enrollCourse = async (courses) => {
 
   return res
 }
+
+export const updateGrade = async (id, data) => {
+  const res = await fetcher(`/grades/${id}`, {
+    method: 'PATCH',
+    body: data,
+  })
+
+  return res
+}

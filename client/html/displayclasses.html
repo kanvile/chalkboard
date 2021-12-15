@@ -89,11 +89,11 @@
 
 	                   <td class="operation">
 	                   		<button class="btn btn-sm btn-danger" data-id=${obj.id} id="delete-${obj.id}">Delete</button>
-	                   		<button class="btn btn-sm btn-info" disabled data-id="${obj.id}"  id="save-${obj.id}">Save</button>
 
 	                   		<button class="btn btn-sm btn-danger hidden" data-id="${obj.id}"  id="cancel-${obj.id}">Cancel</button>
 	                   		<button class="btn btn-sm btn-primary hidden" data-id="${obj.id}"  id="confirm-${obj.id}">Confirm</button>
 
+	                   		<button class="btn btn-sm btn-primary" data-id="${obj.id}" id="grade-${obj.id}">Grade</button>
 	                   </td>
 	    		   </tr>`
         $('#tests-table').append(row)
@@ -102,10 +102,16 @@
         $(`#cancel-${obj.id}`).on('click', cancelDeletion)
         $(`#confirm-${obj.id}`).on('click', confirmDeletion)
         $(`#save-${obj.id}`).on('click', saveUpdate)
+        $(`#grade-${obj.id}`).on('click', toGradePage)
+      }
+
+      function toGradePage() {
+        console.log(11)
+        var id = $(this).data('id')
+        window.location = `/html/grade.html?course_id=${id}`
       }
 
       function saveUpdate() {
-        console.log('Saved!')
         var id = $(this).data('id')
         var saveBtn = $(`#save-${id}`)
         var row = $(`.test-row-${id}`)

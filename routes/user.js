@@ -5,10 +5,9 @@ module.exports = (app) => {
   const isAdmin = require('../middleware/auth')(USER_TYPE.admin)
 
   const genCrudRoute = require('./crud')
-  const { User } = require('../models/user')
   const { getUsersByType } = require('../services/user')
 
-  genCrudRoute(router, User, ['create'])
+  genCrudRoute(router, 'User', ['create'])
 
   router.get('/type/:type', async (req, res, next) => {
     const type = req.params.type

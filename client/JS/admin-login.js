@@ -1,5 +1,5 @@
 import { login } from './fetchers.js'
-import { validate } from './validator.js'
+import { validate } from './common.js'
 
 const form = document['admin-login-form']
 const loginBtn = document.querySelector('.admin-login-btn')
@@ -20,10 +20,17 @@ loginBtn.addEventListener('click', async () => {
 
   if (!validate(data)) {
     loginBtn.textContent = 'login'
+    ing = false
     return
   }
 
-  await login({ ...data, type: 'admin' })
+  try {
+    await login({ ...data, type: 'admin' })
+  } catch {
+    loginBtn.textContent = 'login'
+    ing = false
+    return
+  }
 
   window.location = '/html/adminView.html'
 })

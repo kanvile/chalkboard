@@ -1,15 +1,5 @@
-const genCrudRoute = (router, model, filter = []) => {
-  const genCrudService = require('../services/crud')
-
-  const {
-    getCommons,
-    getCommonById,
-    getCommonByQuery,
-    createCommon,
-    updateCommonById,
-    deleteCommonById,
-    deleteCommons,
-  } = genCrudService(model, 'Common')
+const genCrudRoute = (router, modelName, filter = []) => {
+  const service = require(`../services/${modelName.toLowerCase()}.js`)
 
   if (!filter.includes('readAll')) {
     router.get('/', async (req, res, next) => {
@@ -19,9 +9,9 @@ const genCrudRoute = (router, model, filter = []) => {
         let result
 
         if (Object.keys(query).length > 0) {
-          result = await getCommonByQuery(query)
+          result = await service[`get${modelName}ByQuery`](query)
         } else {
-          result = await getCommons()
+          result = await service[`get${modelName}s`]()
         }
         res.json(result)
       } catch (e) {
@@ -32,11 +22,10 @@ const genCrudRoute = (router, model, filter = []) => {
 
   if (!filter.includes('read')) {
     router.get('/:id', async (req, res, next) => {
-      console.log(req)
       const id = req.params.id
 
       try {
-        const result = await getCommonById(id)
+        const result = await service[`get${modelName}ById`](id)
         res.json(result)
       } catch (e) {
         next(e)
@@ -49,7 +38,7 @@ const genCrudRoute = (router, model, filter = []) => {
       const data = req.body
 
       try {
-        const result = await createCommon(data)
+        const result = await service[`create${modelName}`](data, req.user)
         res.json(result)
       } catch (e) {
         next(e)
@@ -63,7 +52,11 @@ const genCrudRoute = (router, model, filter = []) => {
       const data = req.body
 
       try {
-        const result = await updateCommonById(id, data)
+        const result = await service[`update${modelName}ById`](
+          id,
+          data,
+          req.user
+        )
         res.json(result)
       } catch (e) {
         next(e)
@@ -76,7 +69,7 @@ const genCrudRoute = (router, model, filter = []) => {
       const id = req.params.id
 
       try {
-        await deleteCommonById(id)
+        await service[`delete${modelName}ById`](id)
         res.json(true)
       } catch (e) {
         next(e)
@@ -87,7 +80,7 @@ const genCrudRoute = (router, model, filter = []) => {
   if (!filter.includes('deleteAll')) {
     router.delete('/', async (req, res, next) => {
       try {
-        await deleteCommons()
+        await service[`delete${modelName}s`]()
         res.json(true)
       } catch (e) {
         next(e)

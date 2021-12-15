@@ -3,21 +3,17 @@ import { onClick } from './common.js'
 
 onClick(document.querySelector('.btn'), async () => {
   const name = document['search-course'].search.value
+
   const res = await getCourseByName(name)
 
   if (res) {
-    addRow(res)
+    document.querySelector('#table-body').innerHTML = `
+    <tr scope="row">
+      <td>${res.name}</td>
+      <td>${res.identifier}</td>
+      <td>${res.description}</td>
+      <td>${res.capacity}</td>
+      <td>${res.available}</td>
+    </tr>`
   }
 })
-
-function addRow(obj) {
-  const row = `<tr scope="row" class="test-row-${obj.id}">
-               <td>${obj.name}</td>
-               <td>${obj.identifier}</td>
-               <td>${obj.description}</td>
-               <td>${obj.capacity}</td>
-               <td>${obj.available}</td>
-              </tr>`
-
-  document.querySelector('#table-body').innerHTML = row
-}

@@ -20,6 +20,12 @@ const schema = new Schema(
   }
 )
 
+schema.virtual('grades', {
+  localField: '_id',
+  ref: 'Grade',
+  foreignField: 'course',
+})
+
 schema.virtual('available').get(function () {
   return this.students.length < this.capacity
 })

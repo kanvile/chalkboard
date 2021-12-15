@@ -6,6 +6,7 @@ const schema = new Schema({
   student: { type: ObjectId, ref: 'User' },
   instructor: { type: ObjectId, ref: 'User' },
   lesson: { type: ObjectId, ref: 'Lesson' },
+  course: { type: ObjectId, ref: 'Course' },
   grades: Number,
   feedback: String,
 })

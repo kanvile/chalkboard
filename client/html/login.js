@@ -29,10 +29,17 @@ loginBtn.addEventListener('click', async () => {
 
   if (!validate(data)) {
     loginBtn.textContent = 'login'
+    ing = false
     return
   }
 
-  await login(data)
+  try {
+    await login(data)
+  } catch {
+    loginBtn.textContent = 'login'
+    ing = false
+    return
+  }
 
   const remember = form.remember.checked
 
