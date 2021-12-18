@@ -10,6 +10,7 @@ const getCourses = async () => {
     .populate('students')
     .populate('instructors')
     .populate('materials')
+    .populate('grades')
     .exec()
   return data
 }

@@ -1,7 +1,7 @@
 export const fetcher = async (url, init = {}) => {
   console.log(url, init)
 
-  const token = localStorage.getItem('token')
+  const token = sessionStorage.getItem('token')
 
   const defaultHeaders = {
     'Content-Type': 'application/json',
@@ -33,8 +33,8 @@ export const fetcher = async (url, init = {}) => {
 export const login = async (data) => {
   const { token, user } = await auth(data, 'login')
 
-  localStorage.setItem('user', JSON.stringify(user))
-  localStorage.setItem('token', token)
+  sessionStorage.setItem('user', JSON.stringify(user))
+  sessionStorage.setItem('token', token)
 
   return user
 }

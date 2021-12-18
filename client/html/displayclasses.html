@@ -67,7 +67,7 @@
       const data = $.ajax({
         url: '/courses',
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          Authorization: `Bearer ${sessionStorage.getItem('token')}`,
         },
       })
         .done((res) => {
@@ -161,7 +161,7 @@
           url: `/courses/${id}`,
           method: 'delete',
           headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
+            Authorization: `Bearer ${sessionStorage.getItem('token')}`,
           },
         })
           .done(() => {
