@@ -33,6 +33,8 @@ checkUserType(
   'Student only!'
 )
 
+console.log(currentRoute, user)
+
 // instructor only
 const instructorOnlyRoutes = [
   'dispalyclasses.html',
@@ -43,7 +45,7 @@ checkUserType(
   userType,
   currentRoute,
   instructorOnlyRoutes,
-  'instruct',
+  'instructor',
   'Instructor only!'
 )
 
